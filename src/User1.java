@@ -4,9 +4,9 @@ public class User1 {
     private Integer id;
     private String name;
     private String gender;
-    private Integer age;
+    private int age;
 
-    public User1(Integer id, String name, String gender, Integer age) {
+    public User1(Integer id, String name, String gender, int age) {
         this.id = id;
         this.name = name;
         this.gender = gender;
@@ -41,7 +41,7 @@ public class User1 {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -53,5 +53,9 @@ public class User1 {
                 ", gender='" + gender + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    public String getKeyValue(){
+        return name + "_" + age;
     }
 }
