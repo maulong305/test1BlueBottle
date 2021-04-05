@@ -1,12 +1,20 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
-
-        for (User1 u : randomUser()){
-            System.out.println(u);
+        List<User1> user1List = randomUser();
+        user1List.sort(Comparator.comparing(User1::getName));
+        Set<String> user1s = new TreeSet<>();
+        for (User1 u : user1List){
+            user1s.add(u.getName());
+        }
+//        for (User1 u : user1List){
+//            System.out.println(u);
+//        }
+        System.out.println(user1s.size());
+        System.out.println(user1List.size());
+        for (String u1 : user1s){
+            System.out.println(u1);
         }
     }
     public static List<User1> randomUser(){
@@ -43,5 +51,4 @@ public class Application {
         int num = random.nextInt(to - from +1);
         return from + num;
     }
-
 }
