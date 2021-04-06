@@ -1,12 +1,12 @@
-import javax.annotation.Generated;
+import java.util.Objects;
 
-public class User1 {
+public class User {
     private Integer id;
     private String name;
     private String gender;
     private int age;
 
-    public User1(Integer id, String name, String gender, int age) {
+    public User(Integer id, String name, String gender, int age) {
         this.id = id;
         this.name = name;
         this.gender = gender;
@@ -57,5 +57,21 @@ public class User1 {
 
     public String getKeyValue(){
         return name + "_" + age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return age == user.age &&
+                Objects.equals(id, user.id) &&
+                Objects.equals(name, user.name) &&
+                Objects.equals(gender, user.gender);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, gender, age);
     }
 }
